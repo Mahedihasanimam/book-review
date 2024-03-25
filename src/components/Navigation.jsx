@@ -40,7 +40,7 @@ const Navigation = () => {
       </div>
       <div className="navbar-center hidden lg:flex mb-6">
         <ul className="menu menu-horizontal px-1">
-          <li className=" rounded-md">
+          <li>
           <NavLink className={({ isActive }) =>
                       isActive ? "font-bold border-2 border-green-500 text-green-400" : "font-normal border-2 border-white"
                     } to={'/'}>Home</NavLink>
@@ -50,7 +50,7 @@ const Navigation = () => {
                       isActive ? "font-bold border-2 border-green-500 text-green-400" : "font-normal border-2 border-white"
                     } to={'/booklist'} > Listed Book</NavLink>
           </li>
-          <li className="">
+          <li>
             <NavLink className={({ isActive }) =>
                       isActive ? "font-bold border-2 border-green-500 text-green-400" : "font-normal border-2 border-white"
                     } to={'/read'} >Page To Read</NavLink>
