@@ -1,17 +1,26 @@
-const Book = () => {
+import img from '../assets/pngwing_1-removebg-preview.png'
+const Book = ({item}) => {
+    const {bookName,bookId,author,image,review,totalPages,rating,category,tags,publisher,yearOfPublishing}=item;
+
   return (
-    <div className="card  bg-base-100 shadow-xl">
+    <div className="card  bg-base-100 border-2 border-gray-100 shadow-xl ">
       <figure>
-        <img
-          src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg"
-          alt="Shoes"
+        <img className='bg-gray-200 rounded-lg p-5 mt-5'
+          src={img}
+          alt="Book"
         />
       </figure>
-      <div className="card-body">
-        <h2 className="card-title">Shoes!</h2>
-        <p>If a dog chews shoes whose shoes does he choose?</p>
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">Buy Now</button>
+      <div className="card-body space-y-3">
+       <div>
+       <button className='py-1 bg-opacity-50 bg-green-100 hover:bg-green-100 text-green-400 rounded-full font-bold px-8 '>Young Adult</button>
+       <button className='py-1 bg-opacity-50 bg-green-100 hover:bg-green-100 text-green-400 rounded-full font-bold px-8  ml-4'>Identity</button>
+       </div>
+        <h2 className="text-2xl font-bold">{bookName}</h2>
+        <p>By : {publisher}</p>
+        <hr />
+        <div className=" flex justify-between card-actions ">
+          <span>{category}</span>
+          <span>{rating} </span>
         </div>
       </div>
     </div>

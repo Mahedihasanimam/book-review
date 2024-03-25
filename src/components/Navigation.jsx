@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -25,14 +25,20 @@ const Navigation = () => {
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
           >
-             <li>
-            <Link to={'/'}>Home</Link>
+            <li>
+          <NavLink className={({ isActive }) =>
+                      isActive ? "font-bold border-2 border-green-500 text-green-400" : "font-normal border-2 border-white"
+                    } to={'/'}>Home</NavLink>
           </li>
           <li>
-            <a > Listed Book</a>
+            <NavLink className={({ isActive }) =>
+                      isActive ? "font-bold border-2 border-green-500 text-green-400" : "font-normal border-2 border-white"
+                    } to={'/booklist'} > Listed Book</NavLink>
           </li>
           <li>
-            <a >Page To Read</a>
+            <NavLink className={({ isActive }) =>
+                      isActive ? "font-bold border-2 border-green-500 text-green-400" : "font-normal border-2 border-white"
+                    } to={'/read'} >Page To Read</NavLink>
           </li>
           </ul>
         </div>

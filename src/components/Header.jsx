@@ -9,7 +9,7 @@ const Header = () => {
           src={book}
           className=" rounded-lg "
         />
-        <div className="w-1/2 px-24">
+        <div className="lg:w-1/2 lg:px-24">
           <h1 className="text-5xl  font-bold mb-12 leading-18 ">Books to freshen up your bookshelf</h1>
           <NavLink to={'/booklist'}><button className="btn bg-green-400 hover:bg-green-400 text-white text-lg">View The List</button></NavLink>
         </div>
