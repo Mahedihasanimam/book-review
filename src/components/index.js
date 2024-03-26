@@ -11,12 +11,16 @@ export const getBooks=()=>{
 // save to loacal storeage 
 
 export const saveBook=(book)=>{
+    console.log(book)
     const books=getBooks();
-    const exist=books.find(b=>b.id=== book.id);
+    const exist=books.find((b) =>b.bookId === book.bookId);
     if(exist){
-       return toast.error('allready exist');
+       return toast.error('allready exist')
     }
-    books.push(book)
+    else{
+        books.push(book)
     localStorage.setItem('books',JSON.stringify(books))
     toast.success('Added succesfully')
+    return books;
+    }
 }

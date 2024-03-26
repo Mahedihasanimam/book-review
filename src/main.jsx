@@ -9,6 +9,8 @@ import BookList from './pages/BookList.jsx'
 import PageRead from './pages/PageRead.jsx'
 import BookDetails from './components/BookDetails.jsx'
 import { Toaster } from 'react-hot-toast'
+import ReadBook from './components/ReadBook.jsx'
+import WishList from './components/WishList.jsx'
 
 
 const router=createBrowserRouter([
@@ -22,7 +24,17 @@ const router=createBrowserRouter([
       },
       {
         path:'/booklist',
-        element:<BookList></BookList>
+        element:<BookList></BookList>,
+        children:[
+          {
+            index:true,
+            element:<ReadBook></ReadBook>
+          },
+          {
+            path:'Wishlist',
+            element:<WishList></WishList>
+          },
+        ]
       },
       {
         path:'/read',
@@ -32,7 +44,8 @@ const router=createBrowserRouter([
         path:'/details/:id',
         element:<BookDetails></BookDetails>,
         loader:()=>fetch('../public/book.json')
-      },
+      }
+     
     ],
   }
 ])
