@@ -11,7 +11,7 @@ export const getBooks=()=>{
 // save to loacal storeage 
 
 export const saveBook=(book)=>{
-    console.log(book)
+
     const books=getBooks();
     const exist=books.find((b) =>b.bookId === book.bookId);
     if(exist){

@@ -1,11 +1,23 @@
+import { useEffect, useState } from "react";
+import { getBooks } from ".";
+
+import ReadBookCard from "./ReadBookCard";
 
 
 const ReadBook = () => {
-    return (
-        <div>
-            <h1>this read book</h1>
-        </div>
-    );
+  const [books, setBooks] = useState([]);
+  useEffect(() => {
+    const books = getBooks();
+    setBooks(books);
+  }, []);
+  console.log(books);
+  return (
+    <div className="mt-4">
+      {books.map((item,index) => (
+        <ReadBookCard key={index} item={item}></ReadBookCard>
+      ))}
+    </div>
+  );
 };
 
 export default ReadBook;
