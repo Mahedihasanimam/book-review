@@ -2,7 +2,9 @@
 const BookList = () => {
     return (
         <div>
-            <h1 className="text-5xl">this is book list page</h1>
+          <div className="bg-[#1313130D] rounded-lg">
+          <h1 className="text-5xl mb-4 mt-4 font-bold text-center p-6">Books</h1>
+          </div>
         </div>
     );
 };

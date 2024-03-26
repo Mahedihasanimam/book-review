@@ -1,29 +1,35 @@
-import img from '../assets/pngwing_1-removebg-preview.png'
+import { FaRegStar } from "react-icons/fa";
+import { Link } from "react-router-dom";
 const Book = ({item}) => {
-    const {bookName,bookId,author,image,review,totalPages,rating,category,tags,publisher,yearOfPublishing}=item;
+    const {bookName,bookId,image,rating,category,tags,publisher}=item;
 
   return (
-    <div className="card  bg-base-100 border-2 border-gray-100 shadow-xl ">
-      <figure>
-        <img className='bg-gray-200 rounded-lg p-5 mt-5'
-          src={img}
+  <Link to={`/details/${bookId}`}>
+      <div className="card  bg-base-100 border-2 border-gray-100 shadow-xl ">
+      <figure className='bg-gray-200 rounded-lg m-5 p-10 '>
+        <img className=' '
+          src={image}
           alt="Book"
         />
       </figure>
       <div className="card-body space-y-3">
        <div>
-       <button className='py-1 bg-opacity-50 bg-green-100 hover:bg-green-100 text-green-400 rounded-full font-bold px-8 '>Young Adult</button>
-       <button className='py-1 bg-opacity-50 bg-green-100 hover:bg-green-100 text-green-400 rounded-full font-bold px-8  ml-4'>Identity</button>
+        {
+          tags.map((tag,index)=><a key={index} className="py-1 bg-opacity-50 bg-green-100 hover:bg-green-100 text-green-400 rounded-full font-bold px-4 ml-4">{tag}</a>)
+        }
+        
+       
        </div>
         <h2 className="text-2xl font-bold">{bookName}</h2>
         <p>By : {publisher}</p>
         <hr />
-        <div className=" flex justify-between card-actions ">
+        <div className=" flex justify-between card-actions text-xl">
           <span>{category}</span>
-          <span>{rating} </span>
+          <span className="flex gap-1 items-center justify-center font-bold">{rating} <FaRegStar></FaRegStar></span>
         </div>
       </div>
     </div>
+  </Link>
   );
 };
 
