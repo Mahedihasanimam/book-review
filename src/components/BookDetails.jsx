@@ -6,6 +6,9 @@ const BookDetails = () => {
 const handleRead=(book)=>{
     saveBook(book)
 }
+const handleWishList=(book)=>{
+    saveBook(book)
+}
 
   const { id } = useParams();
   const books = useLoaderData();
@@ -90,7 +93,7 @@ const handleRead=(book)=>{
           <a onClick={()=>handleRead(book)} className="btn bg-transparent text-black border-2 border-gray-300  hover:bg-[#59C6D2] hover:text-white">
             Read
           </a>
-          <a className="btn bg-[#59C6D2] hover:bg-[#59C6D2] text-white ml-2">
+          <a onClick={()=>handleWishList(book)} className="btn bg-[#59C6D2] hover:bg-[#59C6D2] text-white ml-2">
             Wishlist
           </a>
         </div>

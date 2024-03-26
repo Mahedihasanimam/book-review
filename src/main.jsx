@@ -11,11 +11,13 @@ import BookDetails from './components/BookDetails.jsx'
 import { Toaster } from 'react-hot-toast'
 import ReadBook from './components/ReadBook.jsx'
 import WishList from './components/WishList.jsx'
+import NotFound from './components/NotFound.jsx'
 
 
 const router=createBrowserRouter([
   {
     path:'/',
+    errorElement:<NotFound></NotFound>,
     element:<Mainlayout></Mainlayout>,
     children:[
       {

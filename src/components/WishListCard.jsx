@@ -1,7 +1,8 @@
+
 import { Link } from "react-router-dom";
 import { LuUsers} from "react-icons/lu";
 import { IoDocumentTextOutline } from "react-icons/io5";
-const ReadBookCard = ({item}) => {
+const WishListCard = ({item}) => {
     const {bookName,bookId,image,rating,category,tags,publisher,yearOfPublishing,totalPages}=item;
   return (
     <div>
@@ -38,4 +39,4 @@ const ReadBookCard = ({item}) => {
   );
 };
 
-export default ReadBookCard;
+export default WishListCard;

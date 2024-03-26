@@ -1,11 +1,25 @@
+import { useEffect, useState } from "react";
+import { getBooks } from ".";
+import WishListCard from "./WishListCard";
+
 
 
 const WishList = () => {
-    return (
-        <div>
-            <h1>this is wishList</h1>
-        </div>
-    );
+    const [wish, setwish] = useState([]);
+  useEffect(() => {
+    const books = getBooks();
+    setwish(books);
+  }, []);
+
+  return (
+    <div className="mt-4">
+     {
+        wish.map(item=><WishListCard item={item}></WishListCard>)
+     }
+    </div>
+  );
+
 };
+
 
 export default WishList;

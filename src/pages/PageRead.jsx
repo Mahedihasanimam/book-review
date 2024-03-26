@@ -1,8 +1,14 @@
 
+import MyChart from "../components/MyChart";
+
+
+
 const PageRead = () => {
+   
+
     return (
-        <div>
-            <h1 className='text-6xl'>this is read page</h1>
+        <div className="mx-auto">
+           <MyChart></MyChart>
         </div>
     );
 };

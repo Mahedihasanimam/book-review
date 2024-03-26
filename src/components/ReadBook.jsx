@@ -10,7 +10,7 @@ const ReadBook = () => {
     const books = getBooks();
     setBooks(books);
   }, []);
-  console.log(books);
+
   return (
     <div className="mt-4">
       {books.map((item,index) => (
