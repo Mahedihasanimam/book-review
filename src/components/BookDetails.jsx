@@ -1,13 +1,14 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { saveBook } from ".";
+import { savewishlist } from "./Wishlist";
 
 const BookDetails = () => {
 
 const handleRead=(book)=>{
     saveBook(book)
 }
-const handleWishList=(book)=>{
-    saveBook(book)
+const handleWishList=(wish)=>{
+    savewishlist(wish)
 }
 
   const { id } = useParams();

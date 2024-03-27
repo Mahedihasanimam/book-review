@@ -1,4 +1,4 @@
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 // get from local storeage 
 export const getBooks=()=>{
     let books=[];
@@ -7,6 +7,7 @@ export const getBooks=()=>{
         books=JSON.parse(storedBooks);
     }
     return books;
+    
 }
 // save to loacal storeage 
 
@@ -15,12 +16,12 @@ export const saveBook=(book)=>{
     const books=getBooks();
     const exist=books.find((b) =>b.bookId === book.bookId);
     if(exist){
-       return toast.error('allready exist')
+       return toast.error('allready exist wishlist')
     }
     else{
         books.push(book)
     localStorage.setItem('books',JSON.stringify(books))
-    toast.success('Added succesfully')
+    toast.success('Added read book succesfully')
     return books;
     }
 }

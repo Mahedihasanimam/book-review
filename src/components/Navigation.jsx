@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Navigation = () => {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 space-y-4 mb-4">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -44,8 +44,8 @@ const Navigation = () => {
         </div>
         <a className=" font-bold lg:text-3xl text-lg">Book review</a>
       </div>
-      <div className="navbar-center hidden lg:flex mb-6">
-        <ul className="menu menu-horizontal px-1">
+      <div className="navbar-center hidden lg:flex ">
+        <ul className="menu  menu-horizontal px-1">
           <li>
           <NavLink className={({ isActive }) =>
                       isActive ? "font-bold border-2 border-green-500 text-green-400" : "font-normal border-2 border-white"
