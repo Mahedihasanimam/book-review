@@ -6,7 +6,7 @@ const WishListCard = ({item}) => {
     const {bookName,bookId,image,rating,category,tags,publisher,yearOfPublishing,totalPages}=item;
   return (
     <div>
-      <div className="card card-side bg-base-100 shadow-xl  border-2 border-gray-200 mb-4">
+      <div className="card lg:flex-row flex-col card-side bg-base-100 shadow-xl  border-2 border-gray-200 mb-4">
         <figure className='bg-gray-200 rounded-lg m-5 p-10 '>
           <img
             src={image}
@@ -19,11 +19,11 @@ const WishListCard = ({item}) => {
         <div>
             <strong>Tag </strong>
         {
-          tags.map((tag,index)=><a key={index} className="py-1 bg-opacity-50 bg-green-100 hover:bg-green-100 text-green-400 rounded-full font-bold px-4 ml-4"># {tag}</a>)
-        }
-        <strong className="ml-12 font-semibold">year of publushing : {yearOfPublishing}</strong>
+          tags.map((tag,index)=><a key={index} className="py-1 bg-opacity-50 bg-green-100 hover:bg-green-100 text-green-400 rounded-full font-bold lg:px-4 px-1 ml-4"># {tag}</a>)
+        } 
+        <strong className="lg:ml-12 ml-2 font-semibold">year of publushing : {yearOfPublishing}</strong>
         </div>
-        <div className="space-x-12 my-2 flex items-center ">
+        <div className="lg:space-x-12 space-x-2 my-2 flex items-center ">
             <span className="flex gap-2 items-center " > <LuUsers size={20}></LuUsers> publusher : {publisher}</span>
             <p className="flex items-center gap-2"> <IoDocumentTextOutline></IoDocumentTextOutline>  Page : {totalPages}</p>
         </div>

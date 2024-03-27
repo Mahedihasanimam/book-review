@@ -1,5 +1,5 @@
 
-import { useEffect, useState } from 'react';
+
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 import { getBooks } from '.';
 
@@ -26,15 +26,16 @@ const MyChart = () => {
  
 
   return (
-    <BarChart
-    className='bg-gray-100 rounded-md '
-      width={1200}
+   <div >
+     <BarChart
+    className='bg-gray-100 w-full  rounded-md '
+      width={900}
       height={600}
       data={data}
       margin={{
         top: 50,
         right: 30,
-        left: 50,
+        left: 0,
         bottom: 5,
       }}
     >
@@ -49,6 +50,7 @@ const MyChart = () => {
         ))}
       </Bar>
     </BarChart>
+   </div>
   );
 }
 
