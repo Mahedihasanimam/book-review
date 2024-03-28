@@ -1,6 +1,6 @@
 
 
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import { getBooks } from '.';
 
 
@@ -26,11 +26,10 @@ const MyChart = () => {
  
 
   return (
-   <div >
-     <BarChart
-    className='bg-gray-100 w-full  rounded-md '
-      width={900}
-      height={600}
+    <ResponsiveContainer width={320} height={300}>
+      <BarChart
+    className='bg-gray-100  rounded-md '
+
       data={data}
       margin={{
         top: 50,
@@ -50,7 +49,9 @@ const MyChart = () => {
         ))}
       </Bar>
     </BarChart>
-   </div>
+    </ResponsiveContainer>
+
+
   );
 }
 

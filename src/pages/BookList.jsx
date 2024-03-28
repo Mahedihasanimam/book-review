@@ -1,74 +1,107 @@
-import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+
+import { getBooks } from '../components'; // Assuming this imports the function to get books
+import ReadBookCard from '../components/ReadBookCard';
+import { getWishList } from '../components/Wishlist'; // Assuming this imports the function to get wishlist
+import WishListCard from '../components/WishListCard';
 
 const BookList = () => {
-  const [tabIndex, setTapindex] = useState(0);
+  const [books, setBooks] = useState([]);
+  const [wish, setWish] = useState([]);
+  const [select,setSelect]=useState(0)
 
+
+  useEffect(() => {
+    // Fetch books data
+    const fetchBooks = async () => {
+      try {
+        const booksData = await getBooks(); // Assuming getBooks returns a promise
+        setBooks(booksData);
+      } catch (error) {
+        console.error('Error fetching books:', error);
+      }
+    };
+
+    fetchBooks(); // Call the function to fetch books
+  }, []);
+
+  useEffect(() => {
+    // Fetch wishlist data
+    const fetchWishList = async () => {
+      try {
+        const wishListData = await getWishList(); // Assuming getWishList returns a promise
+        setWish(wishListData);
+      } catch (error) {
+        console.error('Error fetching wishlist:', error);
+      }
+    };
+
+    fetchWishList(); // Call the function to fetch wishlist
+  }, []);
+
+
+  const handleOnchane=(event)=>{
+    const selectValue=parseInt(event.target.value)
+    if(selectValue == 1){
+      const book1=[...books].sort((a,b)=>b.rating-a.rating)
+      setBooks(book1)
+      
+    }
+    else if(selectValue == 2){
+      const book2=[...books].sort((a,b)=>b.totalPages-a.totalPages)
+      setBooks(book2)
+      
+    }
+    else if(selectValue == 3){
+      const book3=[...books].sort((a,b)=>b.yearOfPublishing-a.yearOfPublishing)
+      setBooks(book3)
+      
+    }
+    console.log( selectValue)
+  }
+  
   return (
     <div>
       <div className="bg-[#1313130D] rounded-lg">
         <h1 className="text-5xl mb-8 mt-4 font-bold text-center p-6">Books</h1>
       </div>
-      <select className="select bg-green-500 text-white  max-w-xs flex justify-center mx-auto mb-8">
-        <option disabled selected>
-         Sort By
+      <select
+      onChange={handleOnchane}
+       className="select bg-green-500 text-white max-w-xs flex justify-center mx-auto mb-8">
+        <option disabled selected defaultValue>
+          Sort By
         </option>
-        <option>Rating</option>
-        <option>Number of Pages</option>
-        <option>Publishyer</option>
+        <option value={'1'}>Rating</option>
+        <option value={'2'}>Number of Pages</option>
+        <option value={'3'}>Publisher</option> {/* Corrected typo */}
       </select>
 
-      {/* tabs  */}
-      <div className="flex items-center -mx-4 ml-1 overflow-x-auto overflow-y-hidden sm:justify-start flex-nowrap dark:bg-gray-100 dark:text-gray-800">
-        <Link
-          to={""}
-          onClick={() => setTapindex(0)}
-          rel="noopener noreferrer"
-          href="#"
-          className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
-            tabIndex === 0 ? "border border-b-0" : "border-b"
-          } rounded-t-lg dark:border-gray-600 dark:text-gray-900`}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-4 h-4"
-          >
-            <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
-          </svg>
-          <span>Read Books</span>
-        </Link>
-        <Link
-          onClick={() => setTapindex(1)}
-          to={"Wishlist"}
-          rel="noopener noreferrer"
-          href="#"
-          className={`flex items-center flex-shrink-0 px-5 py-3 space-x-2 ${
-            tabIndex === 1 ? "border border-b-0" : "border-b"
-          } rounded-t-lg dark:border-gray-600 dark:text-gray-900`}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="w-4 h-4"
-          >
-            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
-            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
-          </svg>
-          <span>Wishlist Books</span>
-        </Link>
+      {/* tabs */}
+      <div>
+        <Tabs>
+          <TabList>
+            <Tab>Books Read</Tab> {/* Corrected typo */}
+            <Tab>Wish List</Tab>
+          </TabList>
+
+          <TabPanel>
+            <div className="mt-4">
+              {books.map((item) => (
+                <ReadBookCard key={item.bookId} item={item} />
+              ))}
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className="mt-4">
+              {wish.map((item) => (
+                <WishListCard key={item.bookId} item={item} />
+              ))}
+            </div>
+          </TabPanel>
+        </Tabs>
       </div>
-      <Outlet></Outlet>
     </div>
   );
 };
