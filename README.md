@@ -9,9 +9,9 @@ Currently, two official plugins are available:
 
 
 this is a book vibe website . The website name is "book review"
-here is the live site URL:.......
+here is the live site URL:https://superficial-turn.surge.sh/
 
-The main features in this website : https://superficial-turn.surge.sh/
+The main features in this website : 
 1. it's a single page application (SPA).
 2. you can see daynamically book details by clicking on any card.
 3. you can add any book to read Books page.when you want you can see this because it's also added in localstoreage.
