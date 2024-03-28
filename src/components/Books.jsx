@@ -16,7 +16,7 @@ const Books = () => {
       
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
       {
-        book.map(item=><Book key={item.bookId} item={item} ></Book>)
+        book.slice(0,6).map(item=><Book key={item.bookId} item={item} ></Book>)
       }
       </div>
     </div>

@@ -12,6 +12,11 @@ import { Toaster } from 'react-hot-toast'
 import ReadBook from './components/ReadBook.jsx'
 import WishList from './components/WishList.jsx'
 import NotFound from './components/NotFound.jsx'
+import AllBook from './components/AllBook.jsx'
+import ChartWish from './components/ChartWish.jsx'
+
+
+
 
 
 const router=createBrowserRouter([
@@ -46,7 +51,16 @@ const router=createBrowserRouter([
         path:'/details/:id',
         element:<BookDetails></BookDetails>,
         loader:()=>fetch('/book.json')
-      }
+      },
+      {
+        path:'/wish',
+        element:<ChartWish></ChartWish>
+      },
+      {
+        path:'/AllBook',
+        element:<AllBook></AllBook>
+      },
+      
      
     ],
   }

@@ -61,6 +61,16 @@ const Navigation = () => {
                       isActive ? "font-bold border-2 border-green-500 text-green-400" : "font-normal border-2 border-white"
                     } to={'/read'} >Page To Read</NavLink>
           </li>
+          <li>
+            <NavLink className={({ isActive }) =>
+                      isActive ? "font-bold border-2 border-green-500 text-green-400" : "font-normal border-2 border-white"
+                    } to={'/AllBook'} >AllBook</NavLink>
+          </li>
+          <li>
+            <NavLink className={({ isActive }) =>
+                      isActive ? "font-bold border-2 border-green-500 text-green-400" : "font-normal border-2 border-white"
+                    } to={'/wish'} >page to Wish</NavLink>
+          </li>
         </ul>
       </div>
       <div className="navbar-end">

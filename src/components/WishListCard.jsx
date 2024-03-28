@@ -7,7 +7,7 @@ const WishListCard = ({item}) => {
   return (
     <div>
       <div className="card lg:flex-row flex-col card-side bg-base-100 shadow-xl  border-2 border-gray-200 mb-4">
-        <figure className='bg-gray-200 rounded-lg m-5 p-10 '>
+        <figure className='lg:w-[326px] md:w-[326px] md:h-[230px] lg:h-[230px] rounded-lg m-5 p-10 '>
           <img
             src={image}
             alt="Book"
