@@ -13,6 +13,7 @@ const handleWishList=(wish)=>{
 
   const { id } = useParams();
   const books = useLoaderData();
+  console.log(books)
   const idInt = parseInt(id);
   const book = books.find((book) => book.bookId === idInt);
   const {
